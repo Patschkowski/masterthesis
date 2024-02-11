@@ -1,0 +1,18 @@
+digraph SELECT{
+	rankdir=TD;
+	size="32,20"
+	
+	A [label="A", shape=box, fontcolor=blue]
+	
+	C [label="C", shape=box, fontcolor=blue];
+	
+	S [label="sel()", shape=circle];
+	
+	B [label="=B", shape=box, fontcolor=blue];
+	
+	
+	A -> S [label="0/0"]
+	C -> S [label="0/1"]
+	S -> B [label="0/0"]
+
+}

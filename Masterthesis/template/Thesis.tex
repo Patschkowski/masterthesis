@@ -1,0 +1,179 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[pdftex, bookmarks=true,unicode=true, colorlinks=true, 
+linkcolor=red, citecolor=green, filecolor=magenta, urlcolor=cyan, breaklinks 
+]{hyperref}
+%\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{caption}  % Formatierung von Bild-/Tabellentiteln
+           
+\usepackage[T1]{fontenc}           
+\usepackage[utf8]{inputenc}
+\usepackage[english,ngerman]{babel}
+\usepackage{color}
+\usepackage{amsmath,amssymb,amsfonts}				% AMS symbols
+\usepackage{listings}
+\usepackage{notoccite}
+\usepackage{verbatim}
+\usepackage{sverb}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{tocbibind}
+\usepackage{titling}
+\usepackage{acronym}
+\usepackage[binary-units]{siunitx}
+\usepackage{cleveref}
+\usepackage{listings}
+% \usepackage{breakurl}
+
+\usepackage[numbered]{bookmark}
+
+\sisetup{
+  range-phrase = --,
+  range-units = single
+}
+
+\acrodefplural{GPU}[GPUs]{Graphics Processing Units}
+
+\lstset{
+  basicstyle=\footnotesize
+}
+
+\lstdefinelanguage{OpenCL}{%
+  language=C,
+  morekeywords={kernel,__kernel,local,__local,global,__global,private,__private,
+                get_local_id,get_global_id,get_group_id,constant,__constant}
+}
+
+\newcommand{\thesistitle}{\iflanguage{english}{Automatic optimization of linear 
+algebra routines for heterogeneous systems}{Automatische Optimierung von 
+Grundoperationen der linearen Algebra für heterogene Systeme}}
+
+\newcommand{\correctlanguage} { \selectlanguage{english} }
+
+\newcommand\thecategory {}
+\newcommand*{\category}[1]{\renewcommand\thecategory{#1}}
+
+
+%\renewcommand{\chaptermark}[1]{\markright{\chaptername {} \thechapter:  #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\setkeys{Gin}{keepaspectratio=true}
+\widowpenalty=1000
+\clubpenalty=1000
+\setcounter{secnumdepth}{3}
+\renewcommand{\textfraction}{0}
+\renewcommand{\topfraction}{0.75}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\floatpagefraction}{0.8}
+\restylefloat{float}
+\pagestyle{fancy}
+\lhead[\fancyplain{}{\bf\thepage}]{\fancyplain{}{\let\uppercase\relax\rightmark}}
+\chead{}
+\rhead[\fancyplain{}{\bf\thepage}]{\fancyplain{}{\thepage}}
+\lfoot{}
+\cfoot{}
+\rfoot[]{}%
+\addtolength{\headheight}{1cm}  % Headerhöhe vergrößern, sonst Fehlermeldung
+
+\correctlanguage
+
+%----------------------------------------------------------------------
+%- Set document parameters
+%---------------------------------------------------------------------
+
+\hypersetup{%
+    pdftitle={\thesistitle},    % title
+    pdfauthor={Felix Patschkowski},     % author
+    pdfsubject={Project Name},   % subject of the document
+    pdfkeywords= {Keywords}, % list of keywords
+}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+
+\graphicspath{{figures/}}
+
+%----------------------------------------------------------------------
+%- Set title page
+%---------------------------------------------------------------------
+
+\title{\thesistitle}
+\author{Felix Patschkowski (43191)}
+\date{\today}
+\category{Project Thesis}
+
+\hyphenation{In-ter-pre-ter Diag-nos-tik A-no-de}
+
+%----------------------------------------------------------------------
+%- Documentation
+%---------------------------------------------------------------------
+
+\begin{document}
+
+\cleardoublepage
+\include{extra/Titel}
+\cleardoublepage
+
+\correctlanguage
+
+\include{extra/Aufgabenstellung}
+\include{extra/Erklaerung}
+\include{extra/Danksagung}
+\correctlanguage
+
+\pagenumbering{roman} 
+
+\correctlanguage
+
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+
+%----------------------------------------------------------------------
+%- Include your own Chapters 
+%----------------------------------------------------------------------
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{chapter/Abstrakt}
+
+\include{chapter/Einleitung}
+
+\include{chapter/PreviousWork}
+
+\include{chapter/Hardware}
+
+\include{chapter/Implementation}
+
+
+%----------------------------------------------------------------------
+%- Anhang
+%----------------------------------------------------------------------
+
+\part{Anhänge}
+\appendix
+
+\include{chapter/Appendix}
+
+\include{extra/Symbole}
+
+	% BibTeX Datei mit Literaturliste
+	% pdflatex Thesis.tex
+	% bibtex Thesis.aux
+	% pdflatex Thesis.tex
+	% pdflatex Thesis.tex
+\sloppy
+\bibliographystyle{plain}
+\bibliography{bibliography/Literatur}
+\nocite{*}
+
+\end{document}
+
+% Ende des Dokuments:----------------------------------------------------------------
+

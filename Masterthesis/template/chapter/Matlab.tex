@@ -1,0 +1,119 @@
+\chapter{Matlab Compiler} \label{chap:matlab_compiler}
+
+\definecolor{gray}{rgb}{0.8,0.8,0.8}
+\lstset{emph={square},      emphstyle=\color{red},
+        emph={[2]root,base},emphstyle={[2]\color{blue}}}
+\lstset{language=Matlab,firstnumber=1, captionpos=b, backgroundcolor=\color{gray}}
+%\lstset{numbers=left, numberstyle=\tiny}
+
+\begin{definition}\cite{slice-chauhan}
+\label{def:var}
+\textnormal{
+A variable's type is defined to be a four-touple $<\tau, \delta, \sigma, \psi>$, where \\
+$\tau$     denotes the intrinsic type of a variable (e.g. \texttt{int}, \texttt{float}, \dots),\\
+$\delta$   is the dimensionality of a matrix ( \texttt{ndim()}) ,\\
+$\sigma$   is a $\delta$ sized tuple denoting the size of a matrix along each dimension ( \texttt{size()}) ,\\
+$\psi$     denotes the structure of an array. (e.g triangular, dense, \dots).
+}
+\end{definition}
+
+%TODO: Weitere Details des Zwischenformats, in wiefern sich das Zwischenformat von anderen unterscheidet. 
+
+In this work only the dimensionality of a matrix shall be investigated and explored. 
+
+
+
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\section{Matlab Operations}\label{sec:mat_op}
+\subsection{Selection using a single argument} \label{subsec:sel_single_arg}
+Using a single argument for selecting elements from a matrix can be written in matlab as follows.
+\begin{lstlisting}[caption={Selecting using a single argument}]
+B = A(C)
+\end{lstlisting}
+where 
+$\mathbf{A} = (a_{j_1,\dots,j_m}) \in \mathbb{R}^{(k_1 \times \dots \times k_m)}$, 
+$\mathbf{B} = (b_{\tilde{j}_1,\dots,\tilde{j}_n}) \in \mathbb{R}^{(l_1 \times \dots \times l_n)}$ and
+$\mathbf{C} = (c_{\tilde{j}_1,\dots,\tilde{j}_n}) \in \mathbb{R}^{(l_1 \times \dots \times l_n)}$ with 
+$\delta_A = m$, $\sigma_A = (k_1,\dots,k_m)$ and $\delta_B = \delta_C = n$, $\sigma_B = \sigma_C = (l_1,\dots,l_n)$ 
+such that the resulting matrix $\mathbf{B}$ will be of the same dimension as the selecting matrix $\mathbf{C}$:
+\begin{equation}
+\label{equ:sel1}
+b_{\tilde{j}_1\dots\tilde{j}_n} = a_{j_1\dots j_m} 
+\end{equation} 
+in which the content of matrix $\mathbf{B}$ is given by the following relation between the indexes of matrix $\mathbf{A}$ and the matrix element of $\mathbf{C}$.
+\begin{equation}\label{equ:corr_sel1}
+j_1 + k_1\cdot (j_2-1) + \dots + k_1\cdots k_{m-1}\cdot (j_m-1) = c_{\tilde{j}_1,\dots,\tilde{j}_n} , 
+\end{equation} 
+with $j_i \in {1,\dots,k_i}$ and $\tilde{j_i} \in {1,\dots,l_i}$.
+The number of dimensions $m$ and $n$ can be of arbitrary size resulting in a replication and/or selection of the matrix elements of $\mathbf{A}$ according to the elements of $\mathbf{C}$.  
+
+The following examples illustrate the selection po\ss ibilities by using only a single matrix.
+\begin{lstlisting}[caption={Example of equation \ref{equ:sel1}}]
+A = [10 13 16; 11 14 17; 12 15 18];
+C = [1 8; 3 5];
+x = [1 2];
+D = cat(3,C,C+1);
+A(C)
+A(x)
+A(D)
+\end{lstlisting}
+Selecting elements by using the matrix $\mathbf{C}$ equation \ref{equ:sel1} becomes $b_{\tilde{j}_1\tilde{j}_2} = a_{j_1j_2}$ with  $n=m=2$, $j_{1,2}\in\{1,2,3\}$, $\tilde{j}_{1,2}\in\{1,2\}$ and $j_1+3\cdot (j_2-1) = c_{\tilde{j}_1\tilde{j}_2}$ such that $\mathbf{A}(\mathbf{C}) = \bigl( \begin{smallmatrix} 10&17\\12&14 \end{smallmatrix} \bigr)$.\\
+Selecting elements by using the vector $\mathbf{c}$ equation \ref{equ:sel1} becomes $b_{\tilde{j}_1\tilde{j}_2} = a_{j_1j_2}$ with  $n=1$ $\tilde{j}_1 =1,\tilde{j}_2\in\{1,2\}$ and $j_1+3\cdot (j_2-1) = x_{\tilde{j}_1\tilde{j}_2}$ such that $\mathbf{A}(\mathbf{x}) = ( \begin{smallmatrix} 10&11\end{smallmatrix} )$.\\
+Selecting elements by using the tensor $\mathbf{D}$ equation \ref{equ:sel1} becomes $b_{\tilde{j}_1\tilde{j}_2\tilde{j}_3} = a_{j_1j_2}$ with  $n=3$, $\tilde{j}_{1,2,3}\in\{1,2\}$ and $j_1+3\cdot (j_2-1) = d_{\tilde{j}_1\tilde{j}_2\tilde{j}_3}$ such that $\mathbf{A}(\mathbf{D}) = \bigl( \begin{smallmatrix} 10&17\\12&14 \end{smallmatrix} \bigr)_1, \bigl( \begin{smallmatrix} 11&18\\13&15 \end{smallmatrix} \bigr)_2$.
+
+\begin{figure}[!ht]
+\label{fig:sel1}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.3\textwidth]{../Bilder/sel1.pdf} &
+\includegraphics[width=0.3\textwidth]{../Bilder/sel2.pdf} &
+\includegraphics[width=0.3\textwidth]{../Bilder/sel3.pdf}
+\end{tabular}
+\caption{Selection options with a single argument and illustration in the intermediate code.}
+\end{figure}
+
+The first operand of the select operation in figure \ref{fig:sel1} is the matrix from which the elements are selected by the second operand. As already described in equation \ref{equ:sel1} the size of the resulting matrix strictly depends on the size of the selecting element. If the dimensions are not known at compile time, the dimension of the resulting matrix cannot be determined.
+
+%----------------------------------------------------------------
+\subsection{Selection using a multiple arguments}\label{subsec:sel_multiple_arg}
+Similar to the single argument selection there is also the po\ss ibility to use multiple arguments for the selection operation.
+\begin{lstlisting}[caption={Selecting using multiple arguments}]
+B = A(C1,...,Cn) 
+\end{lstlisting}
+where each selecting matrix $\mathbf{C}_i = (c_{\hat{j}_{1_i}\dots \hat{j}_{m_i}})$ $\in \mathbb{R}^{(k_{1_i}, \dots, k_{m_i})}$ , $1 < i \leq n$ and $\mathbf{A} = (a_{j_1\dots j_n}) \in \mathbb{R}^{(l_1, \dots, l_n)}$. In this case the resulting matrix $\mathbf{B} = (b_{\tilde{j}_1\dots \tilde{j}_n}) \in \mathbb{R}^{(o_1, \dots, o_n)}$ in which each dimension $o_i = k_{1_i} \times \cdots \times k_{m_i}$ resulting in: 
+\begin{equation}\label{equ:sel2}
+b_{\tilde{j}_1\dots\tilde{j}_n} = a_{j_1\dots j_n} 
+\end{equation} 
+Each matrix $C_i$ is transformed into a vector along the first dimension (column-major format) if nece\ss ary. The following equation \ref{equ:corr_sel2} shows the relation between the indexes of the resulting $\mathbf{B}$ and selecting matrices $\mathbf{C}_i$.
+\begin{equation}\label{equ:corr_sel2}
+\tilde{j}_i = \hat{j}_{1_i} + k_{1_i} \cdot (\hat{j}_{2_i}-1) + \dots + k_{1_i} \cdots k_{m_i-1} \cdot (\hat{j}_{m_i}-1)
+\end{equation}
+with $j_i = c_{\hat{j}_{1_i}\dots \hat{j}_{m_i}}$ .
+If the number $\tilde{n}$ of selecting matrices $C_i$ is smaller then the number $n$ of dimensions of matrix $\mathbf{A}$ such that $1 < \tilde{n} \leq n $, a one is inserted for the mi\ss ing $n - \tilde{n}$ dimensions. If $\tilde{n}$ equals one, the selection method in section \ref{subsec:sel_single_arg} is used.
+
+The following examples illustrate the selection po\ss ibilities by using up to $n$ different selection matrices.
+\begin{lstlisting}[caption={Example of equation \ref{equ:sel2}}]
+A = [10 13 16; 11 14 17; 12 15 18];
+C1 = [2 3; 3 2; 2 3; 3 2]; % length(C1(:)) = 8;
+c2 = [2; 3]; % length(c2) = 2
+A(C1,c2)
+\end{lstlisting}
+
+Using two selecting matrices with $C_1 = (c_{\hat{j}_{1_1}, \hat{j}_{2_1}})$ and  $C_2 = (c_{\hat{j}_{1_2}})$ equation \eqref{equ:sel2} becomes$ b_{\tilde{j}_1\dots\tilde{j}_n} = a_{j_1\dots j_n}$
+
+%TODO: noch hier die Beispiele zu ende
+
+%and \eqref{\ref:corr_sel2} each selecting 
+
+
+\textit{Note: Although the matrix elements $c_{\tilde{j}_1,\dots,\tilde{j}_n}$ of $\mathbf{C}$ are stored as floating numbers they must have integer values in order to be able to addre\ss  the element positions of matrix $\mathbf{A}$. This has to be considered in the backend of the compiler.}
+
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\section{Type Inference}\label{sec:type_inference}
+Der Matlab Interpreter untert"utzt nur bedingt explizitie typisierung. Mit anderen Worten, jede Variable bzw. Matrix wird standardm"a\ss ig im 64-bit Flie\ss kommaformat abgespeichert. Dies hat bei der Programmierung Vorteile, da der Programmierer sich um eine explizite Typangabe nicht k"ummern mu\ss . Auf der anderen Seite, kann diese Form der Abspeicherung sich nachteilig auf Rechengeschwindigkeit und Speicherplatz auswirken, wenn beispielsweise Zahlenformate mit weniger Pr"azision ausreichen. Ausserdem ist die "Uberpr"ufung von korrekter Indexierung nur zur Laufzeit m"oglich.
+
+Dieser Umstand soll beim P-Matrix Compiler umgangen werden, wobei Typangaben m"oglich aber nicht zwingend erforderlich sind. D.h., da\ss \ eine explizite Typisierung der Variablen wie in der Programmiersprache C erlaubt sind, aber wie in Matlab weggela\ss en werden k"onnen. Ist der Typ einer Variable bzw. eines Datums bei ihrer Deklaration nicht angegeben, so wird sie im 32-bit Flie\ss kommaformat abgespeichert. Umkonvertierung in andere Zahlenformate kann der Programmierer bei Bedarf vornehmen. "Ahnlich wie in der Sprache C k"onnen Zahlen auch explizit typisiert werden, indem ein spezielles Zeichen angeh"angt wird (z.B. 3i) oder auf Flie\ss kommatypen hinweist (3.4). Desweiteren ist es im Gegensatz zu Matlab nicht m"oglich, dass Variablen im Laufe des Programms ihren Typ "andern, wodurch sich eine strenge Typisierung ergibt. Ist eine explizite Typisierung f"ur eine Variable vorgenommen worden, so muss der Programmierer f"ur die Konformit"at der Typen sorgen. Eine Ausnahme dabei stellen nicht explizit typisierte Zahlen dar, die sich bei Bedarf an den Typ der Variablen anpassen k"onnen. Beim "ubersetzen der Sprache in beispielsweise C ist es bei der Indexierungen von Matrizen, Daten gegebenfalls in den Integer Datentyp zu konvertieren. Die Konversion findet im Gegensatz zu der strengen Typisierung automatisch statt, wobei Variablentypen nicht ver"andert werden. 
+

@@ -1,0 +1,239 @@
+@article{AMD2013,
+author = {AMD},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Unknown - 2013 - AMD Accelerated Parallel Processing OpenCL  Programming Guide.pdf:pdf},
+number = {November},
+title = {{AMD Accelerated Parallel Processing OpenCL Programming Guide}},
+year = {2013}
+}
+@article{Chien2010,
+author = {Chien, Lung-sheng},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Chien - 2010 - Hand-Tuned SGEMM on GT200 GPU.pdf:pdf},
+number = {February},
+title = {{Hand-Tuned SGEMM on GT200 GPU}},
+year = {2010}
+}
+@unpublished{Ciechanowicz2009,
+address = {M\"{u}nster},
+author = {Ciechanowicz, P and Poldner, M and Kuchen, H},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Ciechanowicz, Poldner, Kuchen - Unknown - Working papers.pdf:pdf},
+institution = {European Research Center for Information Systems},
+number = {7},
+title = {{The M\"{u}nster Skeleton Library Muesli - A Comprehensive Overview}},
+url = {https://www.ercis.org/sites/www.ercis.org/files/pages/research/ercis-working-papers/ercis\_wp\_07.pdf},
+year = {2009}
+}
+@article{Cui2010,
+abstract = {In this paper we discuss about our experiences in improving the performance of GEMM (both single and double precision) on Fermi architecture using CUDA, and how the new features of Fermi such as cache affect performance. It is found that the addition of cache in GPU on one hand helps the processers take advantage of data locality occurred in runtime but on the other hand renders the dependency of performance on algorithmic parameters less predictable. Auto tuning then becomes a useful technique to address this issue. Our auto-tuned SGEMM and DGEMM reach 563 GFlops and 253 GFlops respectively on Tesla C2050. The design and implementation entirely use CUDA and C and have not benefited from tuning at the level of binary code.},
+author = {Cui, Xiang and Chen, Yifeng and Zhang, Changyou and Mei, Hong},
+doi = {10.1109/ICPADS.2010.64},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Cui et al. - 2010 - Auto-tuning Dense Matrix Multiplication for GPGPU with Cache.pdf:pdf},
+isbn = {978-1-4244-9727-0},
+journal = {2010 IEEE 16th International Conference on Parallel and Distributed Systems},
+keywords = {CUDA,Fermi,GPU,autotuning,matrix multiplication},
+month = dec,
+pages = {237--242},
+publisher = {Ieee},
+title = {{Auto-tuning Dense Matrix Multiplication for GPGPU with Cache}},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5695608},
+year = {2010}
+}
+@article{Djinevski2013,
+address = {Berlin, Heidelberg},
+author = {Djinevski, Leonid and Ristov, Sasko and Gusev, Marjan},
+doi = {10.1007/978-3-642-37169-1},
+editor = {Markovski, Smile and Gusev, Marjan},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Djinevski, Ristov, Gusev - 2013 - ICT Innovations 2012.pdf:pdf},
+isbn = {978-3-642-37168-4},
+keywords = {cache memory,cuda,gpu,hpc,matrix multiplication,superlinear speedup},
+pages = {285--294},
+publisher = {Springer Berlin Heidelberg},
+series = {Advances in Intelligent Systems and Computing},
+title = {{ICT Innovations 2012}},
+url = {http://link.springer.com/10.1007/978-3-642-37169-1},
+volume = {207},
+year = {2013}
+}
+@techreport{Dongarra2013,
+abstract = {This paper presents the design and implementation of sev- eral fundamental dense linear algebra (DLA) algorithms in OpenCL. In particular, these are linear system solvers and eigenvalue problem solvers. Further, we give an overview of the clMAGMA library, an open source, high performance OpenCL library that incorporates the developments pre- sented, and in general provides to heterogeneous architec- tures the DLA functionality of the popular LAPACK library. The LAPACK-compliance and use of OpenCL simplify the use of clMAGMA in applications, while providing them with portably performant DLA. High performance is ob- tained through use of the high-performance OpenCL BLAS, hardware and OpenCL-speci c tuning, and a hybridization methodology where we split the algorithm into computa- tional tasks of various granularities. Execution of those tasks is properly scheduled over the heterogeneous hardware components by minimizing data movements and mapping algorithmic requirements to the architectural strengths of the various heterogeneous hardware components.},
+author = {Dongarra, Jack and Gates, Mark and Luszczek, Piotr and Cao, Chongxiao and Du, Peng and Tomov, Stanimire},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Dongarra, Gates, Luszczek - Unknown - clMAGMA High Performance Dense Linear Algebra.pdf:pdf},
+institution = {University of Tennessee Computer Science},
+title = {{clMAGMA : High Performance Dense Linear Algebra with OpenCL}},
+url = {http://icl.cs.utk.edu/news\_pub/submissions/lawn275.pdf},
+year = {2013}
+}
+@article{Guide2010,
+author = {Guide, Training},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Guide - 2010 - Introduction to OpenCL™ Programming.pdf:pdf},
+title = {{Introduction to OpenCL™ Programming}},
+year = {2010}
+}
+@article{Kerr,
+author = {Kerr, Andrew and Diamos, Gregory and Yalamanchili, Sudhakar},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kerr, Diamos, Yalamanchili - Unknown - A Characterization and Analysis of PTX Kernels.pdf:pdf},
+pages = {1--10},
+title = {{A Characterization and Analysis of PTX Kernels}}
+}
+@inproceedings{Kurzak2011,
+abstract = {In recent years, the use of graphics chips has been recognized as a viable way of accelerating scienti c and engineering ap- plications, even more so since the introduction of the Fermi architecture by NVIDIA, with features essential to numeri- cal computing, such as fast double precision arithmetic and memory protected with error correction codes. Being the crucial component of numerical software packages, such as LAPACK and ScaLAPACK, the general dense matrix mul- tiplication routine is one of the more important workloads to be implemented on these devices. This article presents a methodology for producing matrix multiplication kernels tuned for a speci c architecture, through a canonical process of heuristic autotuning, based on generation of multiple code variants and selecting the fastest ones through benchmark- ing. The key contribution of this work is in the method for generating the search space; speci cally, pruning it to a manageable size. Performance numbers match or exceed other available implementations.},
+address = {Seattle},
+author = {Kurzak, Jakub and Dongarra, Jack and Tomov, Stanimire},
+booktitle = {2011 SC},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kurzak, Dongarra - 2011 - Autotuning GEMMs for Fermi ∗.pdf:pdf},
+title = {{Autotuning GEMMs for Fermi}},
+url = {http://icl.cs.utk.edu/news\_pub/submissions/lawn245.pdf},
+year = {2011}
+}
+@article{Lai2013,
+abstract = {In this paper, we present an approach to estimate GPU applications' performance upper bound based on algorithm analysis and assembly code level benchmarking. As an example, we analyze the potential peak performance of SGEMM (Single-precision General Matrix Multiply) on Fermi (GF110) and Kepler (GK104) GPUs. We try to answer the question of how much optimization space is left for SGEMM and why. According to our analysis, the nature of Fermi (Kepler) instruction set and the limited issue throughput of the schedulers are the main limitation factors for SGEMM to approach the theoretical peak performance. The estimated upper-bound peak performance of SGEMM is around 82.5\% of the theoretical peak performance on GTX580 Fermi GPU and 57.6\% on GTX680 Kepler GPU. Guided by this analysis and using the native assembly language, on average, our SGEMM implementations achieve about 5\% better performance than CUBLAS in CUDA 4.1 SDK for large matrices on GTX580. The achieved performance is around 90\% of the estimated upper-bound performance of SGEMM on GTX580. On GTX680, the best performance we achieve is around 77.3\% of the estimated performance upper bound. We also describe how to use native assembly language directly in the CUDA runtime source code.},
+author = {Lai, Junjie and Seznec, Andre},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Lai - 2013 - Performance Upper Bound Analysis and Optimization of SGEMM on Fermi and Kepler GPUs.pdf:pdf},
+isbn = {9781467355254},
+journal = {International Symposium on Code Generation and Optimization},
+keywords = {cuda,fermi gpu,kepler gpu,performance upper bound analysis,sgemm},
+pages = {1--10},
+publisher = {IEEE Comput. Soc},
+title = {{Performance Upper Bound Analysis and Optimization of SGEMM on Fermi and Kepler GPUs}},
+year = {2013}
+}
+@article{Lee2010,
+author = {Lee, Victor W and Kim, Changkyu and Chhugani, Jatin and Deisher, Michael and Kim, Daehyun and Nguyen, Anthony D and Satish, Nadathur and Smelyanskiy, Mikhail and Chennupaty, Srinivas and Hammarlund, Per and Singhal, Ronak and Dubey, Pradeep},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Lee et al. - 2010 - Debunking the 100X GPU vs. CPU Myth An Evaluation of Throughput Computing on CPU and GPU.pdf:pdf},
+isbn = {9781450300537},
+keywords = {cpu architecture,gpu architecture,mance measurement,perfor-,performance analysis,software optimization,throughput comput-},
+pages = {451--460},
+title = {{Debunking the 100X GPU vs. CPU Myth: An Evaluation of Throughput Computing on CPU and GPU}},
+year = {2010}
+}
+@article{Li,
+author = {Li, Junjie and Science, Information and Ranka, Sanjay and Sahni, Sartaj},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Li et al. - Unknown - Chapter 1.pdf:pdf},
+title = {{Chapter 1}}
+}
+@inproceedings{Li2009,
+address = {Baton Rouge, LA},
+author = {Li, Yinan and Dongarra, Jack and Tomov, Stanimire},
+booktitle = {ICCS'09},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Li, Dongarra, Tomov - 2009 - A Note on Auto-tuning GEMM for GPUs.pdf:pdf},
+keywords = {auto-tuning,dense linear algebra,gpus,matrix multiply},
+pages = {1--9},
+title = {{A Note on Auto-tuning GEMM for GPUs}},
+url = {http://icl.cs.utk.edu/news\_pub/submissions/ldt.pdf},
+year = {2009}
+}
+@article{Matsumoto2012,
+author = {Matsumoto, Kazuya and Nakasato, Naohito and Sedukhin, Stanislav G.},
+doi = {10.1109/SC.Companion.2012.59},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Matsumoto, Nakasato, Sedukhin - 2012 - Performance Tuning of Matrix Multiplication in OpenCL on Different GPUs and CPUs.pdf:pdf},
+isbn = {978-0-7695-4956-9},
+journal = {2012 SC Companion: High Performance Computing, Networking Storage and Analysis},
+month = nov,
+pages = {396--405},
+publisher = {Ieee},
+title = {{Performance Tuning of Matrix Multiplication in OpenCL on Different GPUs and CPUs}},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6495841},
+year = {2012}
+}
+@article{Multi-core,
+author = {Multi-core, Heterogeneous and Architectures, Multi-gpu and Song, Fengguang and Dongarra, Jack},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Multi-core et al. - Unknown - Efficient Support for Matrix Computations on.pdf:pdf},
+title = {{Efficient Support for Matrix Computations on}}
+}
+@inproceedings{Nath2011,
+address = {Seattle, WA},
+author = {Nath, Rajib and Tomov, Stanimire and Dong, Tingxing "Tim" and Dongarra, Jack},
+booktitle = {ACM/IEEE Conference on Supercomputing (SC'11)},
+doi = {10.1145/2063384.2063392},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Nath et al. - 2011 - Optimizing symmetric dense matrix-vector multiplication on GPUs.pdf:pdf},
+isbn = {9781450307710},
+pages = {1},
+publisher = {ACM Press},
+title = {{Optimizing symmetric dense matrix-vector multiplication on GPUs}},
+url = {http://icl.cs.utk.edu/news\_pub/submissions/a6-nath.pdf},
+year = {2011}
+}
+@inproceedings{Nath2010a,
+address = {Berkeley, CA},
+author = {Nath, Rajib and Tomov, Stanimire and Dongarra, Jack},
+booktitle = {VECPAR'10},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Nath, Tomov, Dongarra - Unknown - Accelerating GPU kernels for dense linear algebra.pdf:pdf},
+keywords = {blas,gemm,gpus},
+title = {{Accelerating GPU kernels for dense linear algebra}},
+url = {http://vecpar.fe.up.pt/2010/papers/6.pdf},
+year = {2010}
+}
+@techreport{Nath2010,
+abstract = {We present an improved matrix-matrix multiplication rou- tine (GEMM) in the MAGMA BLAS library that targets the Fermi GPUs. We show how to modify the previous MAGMA GEMM kernels in order to make a more ecient use of the Fermi's new architectural fea- tures, most notably their extended memory hierarchy and sizes. The im- proved kernels run at up to 300 GFlop/s in double and up to 600 GFlop/s in single precision arithmetic (on a C2050), which is 58\% of the theoret- ical peak. We compare the improved kernels with the currently available in CUBLAS 3.1. Further, we show the e ect of the new kernels on higher level dense linear algebra (DLA) routines such as the one-sided matrix factorizations, and compare their performances with corresponding, cur- rently available routines running on homogeneous multicore systems. A general conclusion is that DLA has become a better t for the new GPU architectures, to the point where DLA can run more eciently on GPUs than on current, high-end homogeneous multicore-based systems.},
+author = {Nath, Rajib and Tomov, Stanimire and Dongarra, Jack},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Nath, Tomov, Dongarra - 2010 - An Improved MAGMA GEMM for Fermi GPUs.pdf:pdf},
+institution = {University of Tennessee Computer Science},
+pages = {1--8},
+title = {{An Improved MAGMA GEMM for Fermi GPUs}},
+url = {http://icl.cs.utk.edu/projectsfiles/magma/pubs/fermi\_gemm.pdf},
+year = {2010}
+}
+@article{Poldner,
+author = {Poldner, Michael and Kuchen, Herbert},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Poldner, Kuchen - Unknown - On implementing the farm skeleton.pdf:pdf},
+keywords = {algorithmic skeletons,farm,mpi,parallel programming},
+title = {{On implementing the farm skeleton}}
+}
+@article{Publications2013,
+author = {Publications, Other},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Publications - 2013 - (12) Ulllted States Patent.pdf:pdf},
+number = {12},
+title = {{(12) Ulllted States Patent}},
+volume = {2},
+year = {2013}
+}
+@article{Torres2011,
+abstract = {While the correctness of an NVIDIA CUDA program is easy to achieve, exploiting the GPU capabilities to obtain the best performance possible is a task for CUDA experienced programmers. Typical code tuning strategies, like choosing an appropriate size and shape for the thread-blocks, programming a good coalescing, or maximize occupancy, are inter-dependent. Moreover, the choices are also dependent on the underlying architecture details, and the global-memory access pattern of the designed solution. For example, the size and shapes of threadblocks are usually chosen to facilitate encoding (e.g. square shapes), while maximizing the multiprocessors' occupancy. However, this simple choice does not usually provide the best performance results. In this paper we discuss important relations between the size and shapes of threadblocks, occupancy, global memory access patterns, and other Fermi architecture features, such as the configuration of the new transparent cache. We present an insight based approach to tuning techniques, providing lines to understand the complex relations, and to easily avoid bad tuning settings.},
+author = {Torres, Yuri and Gonzalez-Escribano, Arturo and Llanos, Diego R.},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Torres, Gonzalez-Escribano, Llanos - 2011 - Understanding the impact of CUDA tuning techniques for Fermi.pdf:pdf},
+institution = {Departamento de Inform\&\#x00E1;tica, Universidad de Valladolid, Spain},
+isbn = {9781612843834},
+journal = {2011 International Conference on High Performance Computing \& Simulation},
+keywords = {Fermi,GPU,code tuning,performance},
+pages = {631--639},
+publisher = {Ieee},
+title = {{Understanding the impact of CUDA tuning techniques for Fermi}},
+year = {2011}
+}
+@inproceedings{Volkov2008,
+abstract = {We present performance results for dense linear algebra using recent NVIDIA GPUs. Our matrix-matrix multiply routine (GEMM) runs up to 60\% faster than the vendor's implementation and approaches the peak of hardware capabilities. Our LU, QR and Cholesky factorizations achieve up to 80-90\% of the peak GEMM rate. Our parallel LU running on two GPUs achieves up to \~{}540 Gflop/s. These results are accomplished by challenging the accepted view of the GPU architecture and programming guidelines. We argue that modern GPUs should be viewed as multithreaded multicore vector units. We exploit blocking similarly to vector computers and heterogeneity of the system by computing both on GPU and CPU. This study includes detailed benchmarking of the GPU memory system that reveals sizes and latencies of caches and TLB. We present a couple of algorithmic optimizations aimed at increasing parallelism and regularity in the problem that provide us with slightly higher performance.},
+author = {Volkov, Vasily and Demmel, James W.},
+booktitle = {2008 ACM/IEEE Conference on Supercomputing (SC08)},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Volkov, Demmel - 2008 - Benchmarking GPUs to tune dense linear algebra.pdf:pdf},
+isbn = {978-1-4244-2835-9},
+month = nov,
+title = {{Benchmarking GPUs to Tune Dense Linear Algebra}},
+url = {http://mc.stanford.edu/cgi-bin/images/6/65/SC08\_Volkov\_GPU.pdf http://www.cs.berkeley.edu/~volkov/volkov08-sc08talk.pdf},
+year = {2008}
+}
+@article{Wong2010,
+abstract = {Graphics processors (GPU) offer the promise of more than an order of magnitude speedup over conventional processors for certain non-graphics computations. Because the GPU is often presented as a C-like abstraction (e.g., Nvidia's CUDA), little is known about the characteristics of the GPU's architecture beyond what the manufacturer has documented. This work develops a microbechmark suite and measures the CUDA-visible architectural characteristics of the Nvidia GT200 (GTX280) GPU. Various undisclosed characteristics of the processing elements and the memory hierarchies are measured. This analysis exposes undocumented features that impact program performance and correctness. These measurements can be useful for improving performance optimization, analysis, and modeling on this architecture and offer additional insight on the decisions made in developing this GPU.},
+author = {Wong, H. and Papadopoulou, M.-M. and Sadooghi-Alvandi, M. and Moshovos, a.},
+file = {:home/patschkowskif/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Wong et al. - 2010 - Demystifying GPU microarchitecture through microbenchmarking.pdf:pdf},
+isbn = {9781424460229},
+journal = {Performance Analysis of Systems \&amp;amp; Software (ISPASS), 2010 IEEE International Symposium on},
+pages = {235--246},
+title = {{Demystifying GPU microarchitecture through microbenchmarking}},
+year = {2010}
+}
+@misc{Dinechin2012,
+author = {Dinechin, Florent De and Pasca, Bogdan},
+file = {:home/patschkowskif/Downloads/flopoco\_developer\_manual.pdf:pdf},
+number = {section 2},
+title = {{FloPoCo 2.4.0 developer manual}},
+year = {2012}
+}
+@inproceedings{Dinechin2011,
+abstract = {Reconfigurable circuits have a strong potential as ac- celeration engines. However, using them efficiently requires much design effort compared to classical software programming. The FloPoCo open-source core generator project addresses this issue for a restricted class of circuits that is central to reconfigurable computing: arithmetic datapaths. The FloPoCo framework clearly isolates the two main design issues for such datapaths: implementing the correct mathematical function, and pipelining it to an arbitrary frequency. The function is expressed in FloPoCo as a combinatorial VHDL circuit. The design of this circuit is assisted by a powerful C++ framework for VHDL generation, allowing a designer to program complex optimizations around the VHDL itself. It also provides high-level, function-based testbench generation. The issue of pipelining is then completely automated. FloPoCo automatically builds correct-by-construction pipelines optimized for a wide range of target FPGAs and target operating frequency. FloPoCo is shown to be useful for a wide spectrum of productivity/efficiency trade-offs. At one end, it automatically converts C-like straight-line code into a parameterized and pipelined floating-point datapath. At the other end, it assists expert designers in building complex FPGA-specific operators.},
+author = {Dinechin, Florent De and Pasca, Bogdan},
+booktitle = {IEEE Design \& Test of Computers},
+file = {:home/patschkowskif/Downloads/2011-DaT-FloPoCo.pdf:pdf},
+keywords = {-flopoco,arithmetic circuit,core generator,pipelin-},
+pages = {1--6},
+title = {{Designing custom arithmetic data paths with FloPoCo}},
+year = {2011}
+}

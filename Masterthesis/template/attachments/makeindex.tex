@@ -1,0 +1,21 @@
+\usepackage{makeidx}
+\usepackage{multicol}
+
+\newcommand*{\uu}[1]{\underline{#1}}
+\newcommand*{\bb}[1]{\textbf{#1}}
+
+\makeatletter
+\newcommand*{\heading}[1]{%
+\makebox[0pt][l]{%
+\rule[-3pt]{\linewidth}{0.5pt}}%
+\textsf{\textbf{Index}}\hfil\nopagebreak\vspace{4pt}}
+\renewenvironment{theindex}{%
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{2em}
+\begin{multicols}{2}[\chapter*{\indexname}\addcontentsline{toc}{chapter}{Index}\chaptermark{Index}]
+\parindent\z@
+\parskip\z@ \@plus .3\p@\relax
+\let\item\@idxitem}%
+{\end{multicols}\clearpage}
+\makeatother
+\makeindex

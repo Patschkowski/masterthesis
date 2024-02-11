@@ -1,0 +1,11 @@
+{
+  "name": "thesis",
+  "version-string": "latest",
+  "dependencies": [
+    {
+      "name": "opencl",
+      "version>=": "v2023.02.06#2"
+    }
+  ],
+  "builtin-baseline": "c6d6efed3e9b4242765bfe1b5c5befffd85f7b92"
+}

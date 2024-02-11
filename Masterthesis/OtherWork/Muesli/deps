@@ -1,0 +1,14 @@
+BlockDistribution.o: BlockDistribution.cpp BlockDistribution.h \
+ Distribution.h
+BsrIndex.o: BsrIndex.cpp BsrIndex.h
+ColumnDistribution.o: ColumnDistribution.cpp ColumnDistribution.h \
+ Distribution.h
+DistributedDataStructure.o: DistributedDataStructure.cpp \
+ DistributedDataStructure.h
+Distribution.o: Distribution.cpp Distribution.h
+Double.o: Double.cpp Double.h Serializable.h
+MatrixIndex.o: MatrixIndex.cpp MatrixIndex.h
+OAL.o: OAL.cpp OAL.h
+RoundRobinDistribution.o: RoundRobinDistribution.cpp \
+ RoundRobinDistribution.h Distribution.h
+RowDistribution.o: RowDistribution.cpp RowDistribution.h Distribution.h
